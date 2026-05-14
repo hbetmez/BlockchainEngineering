@@ -46,7 +46,8 @@ class RegisterPayload(DataClassPayloadWID):
 # "?" = bool, "4H" = varlenH bytes field (2-byte length prefix).
 # Do NOT use DataClassPayloadWID for payloads you receive — the dataclass
 # __init__ signature confuses from_unpack_list in some IPv8 versions.
-class RegisterResponsePayload(VariablePayload):
+class RegisterResponsePayload(
+    Payload):
     """message_id = 2 — server reply."""
     msg_id = 2
     format_list = ["?", "varlenH", "varlenH"]
